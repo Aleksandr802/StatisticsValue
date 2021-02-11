@@ -9,9 +9,21 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
 
-    let viewController = ViewController()
+    var data = [StatisticsModel]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
     
+    @IBOutlet weak var usersImage: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var statisticsLabel: UILabel!
+    @IBOutlet weak var usersName: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,12 +42,14 @@ class TableViewCell: UITableViewCell {
 
 extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(viewController.likers.data.count)
-        return viewController.likers.data.count
+        print(data.count)
+        return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReusableCell", for: indexPath)
+        //cell.usersName.text = data[indexPath.row].nickname
+        
         return cell
     }
     

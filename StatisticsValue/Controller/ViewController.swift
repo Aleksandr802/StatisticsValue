@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let statisticsManager = StatisticsManager()
+    let statisticsManager = StatisticsManager() 
     let postManager = PostManager()
     let apiLinks = ApiLinks()
     let postId = "14276"
@@ -84,6 +84,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell
         
         else {fatalError("Unable to create explore tableview cell")}
+        
+        
+        switch indexPath.row {
+        case 0:
+            cell.data = likers.data
+        default:
+            break
+        }
         
         return cell
     }

@@ -9,7 +9,7 @@ import Foundation
 
 struct StatisticsManager {
      
-    let token  = "The accessToken you stored after authentication"
+    let token  = "The accessToken you stored after authentication" 
 
     func performRequest(with apiUrl: String, messageId: String, completionHandler: @escaping (StatModelResponse) -> Void) {
 
