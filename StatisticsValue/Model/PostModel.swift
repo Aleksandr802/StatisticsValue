@@ -15,4 +15,5 @@ struct PostModel: Decodable {
     let comments_count: Int
     let reposts_count: Int
     let bookmarks_count: Int
+    let views_count: Int
 }

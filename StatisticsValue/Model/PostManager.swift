@@ -8,7 +8,7 @@
 import Foundation
 
 struct  PostManager {
-    let token  = "The accessToken you stored after authentication" 
+    let token  = "ENTER-YOUR-TOKEN"
 
     func performRequest(with apiUrl: String, messageId: String, completionHandler: @escaping (PostModel) -> Void) {
 
@@ -36,8 +36,7 @@ struct  PostManager {
         
         do {
             let decodetData = try decoder.decode(PostModel.self, from: statisticsData)
-            print(decodetData.comments_count)
-            
+
             return decodetData
         } catch {
             print(error)

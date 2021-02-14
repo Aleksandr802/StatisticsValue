@@ -9,7 +9,7 @@ import Foundation
 
 struct StatisticsManager {
      
-    let token  = "The accessToken you stored after authentication" 
+    let token  = "ENTER-YOUR-TOKEN"
 
     func performRequest(with apiUrl: String, messageId: String, completionHandler: @escaping (StatModelResponse) -> Void) {
 
@@ -37,7 +37,6 @@ struct StatisticsManager {
         
         do {
             let decodetData = try decoder.decode(StatModelResponse.self, from: statisticsData)
-            print(decodetData.data.first?.id ?? 0)
             
             return decodetData
         } catch {
